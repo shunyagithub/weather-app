@@ -103,18 +103,35 @@ body {
     align-items: center;
 
     #minmax__temperature {
+      margin-left: 30px;
+      position: relative;
       &::before {
-        content: "●";
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -40px;
+        display: block;
+        background-image: url(/img/SVG/temp.svg);
+        background-size: contain;
+        width: 35px;
+        height: 35px;
+
         margin-right: 10px;
-        color: #89d3c5;
       }
     }
 
     #humidity {
+      position: relative;
       &::before {
-        content: "●";
-        margin-right: 10px;
-        color: #89d3c5;
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -40px;
+        display: block;
+        background-image: url(/img/SVG/humi.svg);
+        background-size: contain;
+        width: 35px;
+        height: 35px;
       }
     }
   }
