@@ -22,6 +22,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   color: #8b8b8b;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .weather__container {
@@ -66,10 +68,25 @@ body {
   left: -10%;
   -webkit-transform: translate(0%, -50%);
           transform: translate(0%, -50%);
-  width: 150px;
-  height: 150px;
-  background: #ffd584;
-  border-radius: 100%;
+  width: 180px;
+  height: 180px;
+}
+
+.weather__container #weather__icon svg {
+  width: 100%;
+}
+
+.weather__container #weather__icon #clear-sky,
+.weather__container #weather__icon #rain,
+.weather__container #weather__icon #snow,
+.weather__container #weather__icon #thunderstorm,
+.weather__container #weather__icon #mist,
+.weather__container #weather__icon #broken-clouds {
+  opacity: 0;
+}
+
+.weather__container #weather__icon .show {
+  opacity: 1;
 }
 
 .weather__container .box1 {
