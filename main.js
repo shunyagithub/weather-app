@@ -1,3 +1,7 @@
+// if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+// }
+
 // Access DOM elements
 const weatherCondition = document.getElementById("weather__condition");
 const locationName = document.getElementById("location__name");
@@ -20,12 +24,17 @@ const body = document.body;
 const weathers = [clearSky, rain, clouds, snow, thunderstorm, mist];
 
 // Prepare openweathermap.org request
+
+const  API_KEY  = process.env.API_KEY;
+
+console.log(API_KEY)
+
 let xml = new XMLHttpRequest();
 
 const url = "https://api.openweathermap.org/data/2.5/weather?q=";
 const unitsMetric = "&units=metric";
 const unitsImperial = "&units=imperial";
-const apikey = "&APPID=d4d9dff7aac7ef697172af5cc9bf274e";
+// const apikey = "&APPID=d4d9dff7aac7ef697172af5cc9bf274e";
 
 cityForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -33,10 +42,10 @@ cityForm.addEventListener("submit", (e) => {
   const chosenCity = cityInput.value;
 
   if (btnCelsius.classList.contains("active")) {
-    xml.open("GET", url + chosenCity + unitsMetric + apikey);
+    xml.open("GET", url + chosenCity + unitsMetric + API_KEY);
     xml.send();
   } else if (btnFahrenheit.classList.contains("active")) {
-    xml.open("GET", url + chosenCity + unitsImperial + apikey);
+    xml.open("GET", url + chosenCity + unitsImperial + API_KEY);
     xml.send();
   }
   cityForm.reset();
